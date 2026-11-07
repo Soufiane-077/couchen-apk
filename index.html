@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>COUCHEN</title>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Cairo:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0F2B2E;--ink:#0A1A1C;--paper:#F7EBD7;--lem:#FFD84D;--or:#FF6B3D;--mint:#7BE0B5;--mut:#9CBDB8;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;margin:0}
+body{background:radial-gradient(rgba(247,235,215,.07) 1.5px,transparent 1.6px) 0 0/22px 22px,var(--bg);color:var(--paper);font:500 17px/1.5 Cairo,system-ui,sans-serif;overflow-x:hidden}
+#app{max-width:520px;margin:0 auto;padding:16px 18px 26px}
+.col{display:flex;flex-direction:column;min-height:calc(100vh - 44px)}
+.top{display:flex;justify-content:space-between;align-items:center;min-height:40px}
+.x{background:none;border:0;color:var(--mut);font:700 15px Cairo;padding:8px 2px}
+h2{font:400 32px/1.2 Lalezar,Cairo,sans-serif;margin:6px 0;color:var(--lem)}
+p.s{color:var(--mut);margin:0 0 14px}
+.logo{font:400 clamp(48px,16vw,76px)/1 Lalezar,sans-serif;letter-spacing:.04em;color:var(--paper);direction:ltr;text-shadow:4px 4px 0 var(--or)}
+.hero{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:14px;padding:20px 0}
+.stack{position:relative;width:170px;height:140px;margin-bottom:10px}
+.slip{position:absolute;inset:0;border-radius:18px;border:3px solid var(--ink);display:grid;place-items:center;font:400 78px Lalezar;color:var(--ink)}
+.slip:nth-child(1){background:var(--mint);transform:rotate(-12deg) translate(-26px,6px)}
+.slip:nth-child(2){background:var(--or);transform:rotate(9deg) translate(26px,2px)}
+.slip:nth-child(3){background:var(--paper);transform:rotate(-2deg);animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:rotate(2deg) translateY(-8px)}}
+.card{background:var(--paper);color:var(--ink);border:3px solid var(--ink);border-radius:22px;padding:16px;box-shadow:0 6px 0 rgba(0,0,0,.35)}
+.btn{display:block;width:100%;border:3px solid var(--ink);border-radius:18px;padding:13px;font:400 23px Lalezar,Cairo;color:var(--ink);background:var(--lem);box-shadow:0 6px 0 var(--or);transition:transform .1s,box-shadow .1s;margin-top:14px}
+.btn:active{transform:translateY(5px);box-shadow:0 1px 0 var(--or)}
+.btn.o{background:transparent;color:var(--paper);border-color:var(--paper);box-shadow:0 5px 0 rgba(247,235,215,.25)}
+.btn.sm{width:auto;display:inline-block;padding:6px 14px;font-size:17px;margin:0;box-shadow:0 4px 0 var(--or)}
+.row{display:flex;gap:10px;align-items:center;margin-bottom:12px}
+.st{flex:none;width:54px;height:54px;border-radius:46% 54% 50% 50%/55% 45% 55% 45%;font-size:28px;border:3px solid #fff;background:linear-gradient(135deg,rgba(255,255,255,.5),transparent 55%),hsl(var(--h) 85% 68%);box-shadow:0 0 0 3px var(--ink),0 6px 0 3px var(--ink);display:inline-grid;place-items:center;text-shadow:0 2px 0 rgba(0,0,0,.25);transition:transform .15s}
+.st:active{transform:scale(.88) rotate(8deg)!important}
+.av .st{animation:pop .55s}
+@keyframes pop{0%{transform:scale(.3) rotate(-25deg)}70%{transform:scale(1.15) rotate(6deg)}}
+.pick{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:10px 0}
+.pick button{aspect-ratio:1;font-size:26px;border-radius:14px;border:3px solid transparent;background:rgba(10,26,28,.08)}
+.pick button.on{border-color:var(--ink);background:var(--lem);transform:rotate(-6deg)}
+.hues{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin-bottom:4px}
+.hues button{width:30px;height:30px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px var(--ink)}
+.hues button.on{transform:scale(1.25)}
+.modal .card{max-height:92vh;overflow:auto}
+.by{direction:ltr;text-align:center;margin:0;font:700 15px Cairo,sans-serif;letter-spacing:.08em;color:var(--lem);background:rgba(10,26,28,.55);border:2px solid var(--lem);border-radius:999px;padding:4px 16px}
+.row:nth-child(odd) .st{transform:rotate(-5deg)}.row:nth-child(even) .st{transform:rotate(4deg)}
+input[type=text],textarea{width:100%;background:var(--paper);border:3px solid var(--ink);border-radius:16px;color:var(--ink);font:700 17px Cairo;padding:11px 14px;outline:none}
+input:focus,textarea:focus{border-color:var(--lem);box-shadow:0 0 0 3px var(--or)}
+textarea{min-height:84px;resize:none;margin-bottom:12px}
+.step{display:flex;align-items:center;gap:10px;margin-inline-start:auto}
+.step button{width:40px;height:40px;border-radius:50%;border:3px solid var(--ink);background:var(--lem);font:700 22px Cairo;color:var(--ink)}
+.step b{min-width:26px;text-align:center;font:400 26px Lalezar}
+.big{font:400 96px/1 Lalezar;text-align:center;color:var(--or)}
+input[type=range]{width:100%;accent-color:var(--or);margin:12px 0}
+.bar{height:14px;background:rgba(247,235,215,.12);border:2px solid var(--paper);border-radius:10px;overflow:hidden;margin:6px 0 14px}
+.bar i{display:block;height:100%;background:repeating-linear-gradient(45deg,var(--mint) 0 10px,#5fcf9f 10px 20px);transition:width .4s}
+.err{color:var(--or);min-height:24px;font-weight:700;margin:4px 0}
+.q{position:relative;font:400 clamp(28px,8vw,40px)/1.45 Lalezar,Cairo,sans-serif;text-align:center;padding:34px 18px;background:var(--paper) repeating-linear-gradient(transparent 0 46px,rgba(10,26,28,.1) 46px 48px);transform:rotate(-1.5deg);animation:flip .5s}
+@keyframes flip{from{opacity:0;transform:rotate(-8deg) translateY(30px) scale(.9)}}
+.q::after{content:"؟";position:absolute;top:-22px;inset-inline-start:-6px;font:400 64px Lalezar;color:var(--or);text-shadow:2px 2px 0 var(--ink)}
+.av{font-size:92px;text-align:center}
+.mid{flex:1;display:flex;flex-direction:column;justify-content:center}
+.c{text-align:center}
+.mode{display:flex;gap:10px;margin:10px 0}
+.mode button{flex:1;padding:12px 8px;border-radius:18px;border:3px solid var(--paper);background:transparent;color:var(--paper);font:700 17px Cairo}
+.mode button.on{background:var(--mint);color:var(--ink);border-color:var(--ink);box-shadow:0 5px 0 var(--ink)}
+.mode small{display:block;font-weight:500;font-size:13px}
+.rv{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-bottom:14px}
+.rv .a{font-weight:900;color:var(--or);white-space:nowrap}
+.modal{position:fixed;inset:0;background:rgba(5,14,16,.82);display:grid;place-items:center;padding:24px;z-index:9}
+.modal .card{max-width:360px;width:100%}
+.cf{position:fixed;top:-20px;width:10px;height:16px;border-radius:3px;animation:fall 3.4s linear forwards;z-index:1;pointer-events:none}
+@keyframes fall{to{transform:translateY(105vh) rotate(720deg)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></head>
+<body><div id="app"></div>
+<script>
+const K='couchen-ar-v1',ST=['😂','😎','🤔','👀','🤫','😈','🥶','🤯','🤠','🥳','😴','🤖','👻','🦊','🐸','🔥','🤪','😇','🥸','🤭','🫣','😏','🤩','😤','🙈','🦄','🐙','🐼','🦁','👽','💀','🍕'],HUES=[0,25,48,95,150,175,205,230,265,300,330];
+const fresh=()=>({scr:'home',n:4,players:[],mode:'turn',qs:[],queue:[],idx:0,phase:'pass',ei:0,draft:{},rev:{},sound:true,err:''});
+let S;try{S=Object.assign(fresh(),JSON.parse(localStorage.getItem(K))||{})}catch(e){S=fresh()}
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const rnd=n=>crypto.getRandomValues(new Uint32Array(1))[0]%n;
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=rnd(i+1);[a[i],a[j]]=[a[j],a[i]]}return a};
+let ac;function tone(seq){if(!S.sound)return;try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();let t=ac.currentTime;seq.forEach(([f,d])=>{const o=ac.createOscillator(),g=ac.createGain();o.type='triangle';o.frequency.value=f;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.12,t+.01);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(ac.destination);o.start(t);o.stop(t+d);t+=d*.8})}catch(e){}}
+const noise=(d,f0,f1)=>{if(!S.sound)return;tone([]);try{const n=Math.floor(ac.sampleRate*d),b=ac.createBuffer(1,n,ac.sampleRate),a=b.getChannelData(0);for(let i=0;i<n;i++)a[i]=Math.random()*2-1;const s=ac.createBufferSource(),fl=ac.createBiquadFilter(),g=ac.createGain(),t=ac.currentTime;s.buffer=b;fl.type='bandpass';fl.Q.value=2;fl.frequency.setValueAtTime(f0,t);fl.frequency.exponentialRampToValueAtTime(f1,t+d);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.14,t+d*.4);g.gain.exponentialRampToValueAtTime(.0001,t+d);s.connect(fl);fl.connect(g);g.connect(ac.destination);s.start(t)}catch(e){}};
+const sfx={c:()=>tone([[700,.05],[520,.07]]),t:()=>noise(.3,300,2400),q:()=>{noise(.2,800,3000);tone([[523,.09],[659,.09],[784,.09],[1047,.25]])},e:()=>tone([[523,.12],[659,.12],[784,.12],[1047,.12],[784,.1],[1047,.12],[1319,.4]]),pop:()=>tone([[400,.04],[900,.09]]),err:()=>tone([[220,.12],[160,.2]]),rv:()=>tone([[1200,.06],[1600,.06],[2000,.16]])};
+const P=id=>S.players.find(p=>p.id===id);
+const bar=v=>`<div class="bar"><i style="width:${Math.round(v*100)}%"></i></div>`;
+const stk=(p,sz)=>`<span class="st" style="--h:${p.hue};width:${sz}px;height:${sz}px;font-size:${sz*.52}px">${ST[p.st]}</span>`;
+function go(scr,x){Object.assign(S,{scr,err:''},x||{});sfx.t();save();r()}
+function ask(msg,fn){const m=document.createElement('div');m.className='modal';m.innerHTML=`<div class="card c"><h2 style="color:var(--ink)">${msg}</h2><button class="btn" id="y">نعم</button><button class="btn o" id="n" style="color:var(--ink);border-color:var(--ink);box-shadow:none">إلغاء</button></div>`;document.body.appendChild(m);m.querySelector('#n').onclick=()=>m.remove();m.querySelector('#y').onclick=()=>{m.remove();fn()}}
+const total=()=>S.queue.length;
+/* التوزيع: لا يُسند أي سؤال لصاحبه، ويُعرض كل سؤال مرة واحدة */
+function build(){
+  const ps=S.players,qs=shuffle(S.qs),out=[];
+  if(S.mode==='turn'){let p=0;for(const q of qs){let k=0;while(ps[(p+k)%ps.length].id===q.author)k++;const i=(p+k)%ps.length;out.push({qid:q.id,to:ps[i].id});p=(i+1)%ps.length}}
+  else{const load={};ps.forEach(x=>load[x.id]=0);for(const q of qs){const el=ps.filter(x=>x.id!==q.author),mn=Math.min(...el.map(x=>load[x.id])),pool=el.filter(x=>load[x.id]===mn),w=pool[rnd(pool.length)];load[w.id]++;out.push({qid:q.id,to:w.id})}}
+  const by={};S.qs.forEach(q=>by[q.id]=q);
+  if(out.length!==S.qs.length||out.some(a=>by[a.qid].author===a.to))throw new Error('distribution');
+  S.queue=out;
+}
+const A={
+ play(){S=Object.assign(fresh(),{sound:S.sound});go('count')},
+ home(){ask('العودة إلى القائمة الرئيسية؟ ستضيع اللعبة الحالية.',()=>{S=Object.assign(fresh(),{sound:S.sound});save();r()})},
+ n(d){S.n=Math.max(2,Math.min(40,S.n+d));save();r()},
+ rng(v){S.n=+v;document.getElementById('big').textContent=v;save()},
+ toNames(){const old=S.players;S.players=Array.from({length:S.n},(_,i)=>old[i]||{id:'p'+Date.now().toString(36)+i+rnd(1e6),name:'',st:i%ST.length,hue:(i*47)%360,cnt:3});go('names')},
+ cyc(i){const m=document.createElement('div');m.className='modal';document.body.appendChild(m);const p=S.players[i],el=document.getElementById('st'+i),draw=()=>{m.innerHTML=`<div class="card c"><div style="margin-bottom:8px">${stk(p,96)}</div><div class="pick">${ST.map((e,k)=>`<button class="${k===p.st?'on':''}" data-k="${k}">${e}</button>`).join('')}</div><div class="hues">${HUES.map(h=>`<button class="${h===p.hue?'on':''}" data-h="${h}" style="background:hsl(${h} 85% 68%)"></button>`).join('')}</div><button class="btn" id="ok">تم</button></div>`;const up=()=>{sfx.pop();save();if(el){el.textContent=ST[p.st];el.style.setProperty('--h',p.hue)}draw()};m.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{p.st=+b.dataset.k;up()});m.querySelectorAll('[data-h]').forEach(b=>b.onclick=()=>{p.hue=+b.dataset.h;up()});m.querySelector('#ok').onclick=()=>m.remove()};draw()},
+ nm(i,v){S.players[i].name=v;save()},
+ toCounts(){const names=S.players.map(p=>p.name.trim().toLowerCase());if(names.some(n=>!n))return A.e('لكل لاعب اسم من فضلك.');if(new Set(names).size!==names.length)return A.e('الأسماء يجب أن تكون مختلفة.');S.players.forEach(p=>p.name=p.name.trim());go('counts')},
+ e(m){S.err=m;sfx.err();r()},
+ cnt(i,d){S.players[i].cnt=Math.max(1,Math.min(10,S.players[i].cnt+d));save();r()},
+ startEntry(){go('enter',{ei:0,phase:'pass',qs:[],draft:{}})},
+ begin(){sfx.q();S.phase='write';save();r()},
+ dr(j,v){(S.draft[S.ei]=S.draft[S.ei]||[])[j]=v;save()},
+ done(){const p=S.players[S.ei],d=S.draft[S.ei]||[];for(let j=0;j<p.cnt;j++)if(!(d[j]||'').trim())return A.e('املأ كل الأسئلة ('+p.cnt+').');
+  d.slice(0,p.cnt).forEach((t,j)=>S.qs.push({id:'q'+p.id+j,author:p.id,text:t.trim()}));delete S.draft[S.ei];
+  if(S.ei+1>=S.players.length)return go('ready');go('enter',{ei:S.ei+1,phase:'pass'})},
+ mode(m){S.mode=m;save();r()},
+ startQ(){build();go('play',{idx:0,phase:'pass',rev:{}})},
+ ready(){sfx.q();S.phase='show';save();r()},
+ next(){if(S.idx+1>=total()){sfx.e();S.scr='done';save();r();confetti();return}S.idx++;S.phase='pass';sfx.t();save();r()},
+ rev(id){S.rev[id]=true;sfx.rv();save();r()},
+ snd(){S.sound=!S.sound;save();r();sfx.c()},
+ again(){ask('بدء لعبة جديدة؟ سيُمسح كل شيء.',()=>{S=Object.assign(fresh(),{sound:S.sound});save();r()})}
+};
+function confetti(){for(let i=0;i<44;i++){const e=document.createElement('i');e.className='cf';e.style.left=rnd(100)+'vw';e.style.background=['#FFD84D','#FF6B3D','#7BE0B5','#F7EBD7'][i%4];e.style.animationDelay=(rnd(14)/10)+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),5200)}}
+const topbar=back=>`<div class="top"><button class="x" onclick="go('${back}')">→ رجوع</button><button class="x" onclick="A.home()">✕ خروج</button></div>`;
+const quit=`<div class="top"><span></span><button class="x" onclick="A.home()">✕ خروج</button></div>`;
+function r(){
+  const s=S.scr;let h='';
+  if(s==='home')h=`<div class="hero"><div class="stack"><div class="slip">؟</div><div class="slip">؟</div><div class="slip">؟</div></div><div class="logo">COUCHEN</div><p class="s" style="margin:0">أسئلة سرية بين الأصدقاء… وهاتف واحد</p><p class="by">made by Soufiane.Mk</p></div><button class="btn" onclick="A.play()">العب</button><button class="btn o" onclick="go('how')">طريقة اللعب</button><button class="btn o" onclick="go('settings')">الإعدادات</button>`;
+  else if(s==='how')h=`<div class="top"><button class="x" onclick="go('home')">→ رجوع</button></div><h2>طريقة اللعب</h2><div class="card"><p>١. اختاروا عدد اللاعبين (من 2 إلى 40)، وكل لاعب يحدد عدد أسئلته.</p><p>٢. مرّروا الهاتف، وكل لاعب يكتب أسئلته سراً. تختفي الأسئلة عند الضغط على «تم».</p><p>٣. قفوا في دائرة. تُخلط الأسئلة وتُوزع، ولن يصل أحداً سؤاله هو.</p><p>٤. اقرأ السؤال بصوت عالٍ وأجب شفهياً. بلا نقاط وبلا فائز.</p><p style="margin:0">٥. في النهاية يمكنكم كشف صاحب أي سؤال إن رغبتم.</p></div>`;
+  else if(s==='settings')h=`<div class="top"><button class="x" onclick="go('home')">→ رجوع</button></div><h2>الإعدادات</h2><div class="card row" style="justify-content:space-between;margin:0"><span>المؤثرات الصوتية</span><button class="btn sm" onclick="A.snd()">${S.sound?'تشغيل':'إيقاف'}</button></div><p class="by" style="margin-top:26px">made by Soufiane.Mk</p>`;
+  else if(s==='count')h=`${topbar('home')}<h2>كم عدد اللاعبين؟</h2><p class="s">من 2 إلى 40 لاعباً.</p><div class="card"><div class="big" id="big">${S.n}</div><input type="range" min="2" max="40" value="${S.n}" oninput="A.rng(this.value)"><div class="row c" style="justify-content:center;margin:0"><div class="step" style="margin:0"><button onclick="A.n(-1)">−</button><button onclick="A.n(1)">+</button></div></div></div><button class="btn" onclick="A.toNames()">التالي</button>`;
+  else if(s==='names')h=`${topbar('count')}<h2>من سيلعب؟</h2><p class="s">اكتب الاسم، واضغط على الملصق لتغييره.</p>${S.players.map((p,i)=>`<div class="row"><button class="st" id="st${i}" style="--h:${p.hue}" onclick="A.cyc(${i})">${ST[p.st]}</button><input type="text" maxlength="16" placeholder="اللاعب ${i+1}" value="${esc(p.name)}" oninput="A.nm(${i},this.value)"></div>`).join('')}<div class="err">${S.err}</div><button class="btn" onclick="A.toCounts()">التالي</button>`;
+  else if(s==='counts'){const t=S.players.reduce((x,p)=>x+p.cnt,0);h=`${topbar('names')}<h2>كم سؤالاً لكل لاعب؟</h2><p class="s">لكل لاعب عدده الخاص. المجموع: ${t}</p>${S.players.map((p,i)=>`<div class="row card" style="padding:10px 12px;margin-bottom:12px">${stk(p,44)}<b>${esc(p.name)}</b><div class="step"><button onclick="A.cnt(${i},-1)">−</button><b>${p.cnt}</b><button onclick="A.cnt(${i},1)">+</button></div></div>`).join('')}<button class="btn" onclick="A.startEntry()">ابدأ كتابة الأسئلة</button>`}
+  else if(s==='enter'){const p=S.players[S.ei],pr=S.ei/S.players.length;
+    if(S.phase==='pass')h=`${quit}${bar(pr)}<div class="mid c"><div class="av">${stk(p,120)}</div><p class="s">اللاعب ${S.ei+1} من ${S.players.length}</p><h2>أعطِ الهاتف إلى ${esc(p.name)}</h2></div><button class="btn" onclick="A.begin()">ابدأ</button>`;
+    else{const d=S.draft[S.ei]||[];h=`<div class="top"><button class="x" onclick="go('enter',{phase:'pass'})">→ رجوع</button><button class="x" onclick="A.home()">✕ خروج</button></div>${bar(pr)}<h2>${ST[p.st]} ${esc(p.name)}، اكتب أسئلتك (${p.cnt})</h2><p class="s">لن يراها أحد غيرك.</p>${Array.from({length:p.cnt},(_,j)=>`<textarea maxlength="160" placeholder="السؤال ${j+1}" oninput="A.dr(${j},this.value)">${esc(d[j]||'')}</textarea>`).join('')}<div class="err">${S.err}</div><button class="btn" onclick="A.done()">تم</button>`}}
+  else if(s==='ready')h=`${quit}<div class="mid c"><div class="av">🎉</div><h2>كل الأسئلة جاهزة!</h2><p class="s">الآن، قفوا جميعاً في دائرة.</p></div><div class="mode"><button class="${S.mode==='turn'?'on':''}" onclick="A.mode('turn')">بالتناوب<small>حسب ترتيب القائمة</small></button><button class="${S.mode==='random'?'on':''}" onclick="A.mode('random')">عشوائي<small>توزيع متوازن</small></button></div><button class="btn" onclick="A.startQ()">ابدأ مرحلة الأسئلة</button>`;
+  else if(s==='play'){const a=S.queue[S.idx],p=P(a.to),q=S.qs.find(x=>x.id===a.qid);
+    if(S.phase==='pass')h=`${quit}${bar(S.idx/total())}<div class="mid c"><div class="av">${stk(p,120)}</div><p class="s">السؤال ${S.idx+1} من ${total()} · المتبقي ${total()-S.idx}</p><h2>أعطِ الهاتف إلى ${esc(p.name)}</h2></div><button class="btn" onclick="A.ready()">جاهز</button>`;
+    else h=`<div class="top"><b>${ST[p.st]} ${esc(p.name)}</b><button class="x" onclick="A.home()">✕ خروج</button></div>${bar((S.idx+1)/total())}<div class="mid"><div class="card q">${esc(q.text)}</div><p class="s c" style="margin-top:22px">اقرأ السؤال بصوت عالٍ ثم أجب.</p></div><button class="btn" onclick="A.next()">${S.idx+1>=total()?'إنهاء':'السؤال التالي'}</button>`}
+  else if(s==='done')h=`<div class="mid c"><div class="av">🥂</div><h2>انتهت كل الأسئلة!</h2><p class="s">بلا نقاط وبلا فائز… فقط ذكريات.</p></div><button class="btn" onclick="go('review')">مراجعة الأسئلة</button><button class="btn o" onclick="A.again()">لعبة جديدة</button>`;
+  else if(s==='review')h=`<div class="top"><button class="x" onclick="go('done')">→ رجوع</button></div><h2>الأسئلة السابقة</h2><p class="s">هوية الكاتب مخفية حتى تضغط.</p>${S.queue.map(a=>{const q=S.qs.find(x=>x.id===a.qid),au=P(q.author);return `<div class="card rv"><span>${esc(q.text)}</span>${S.rev[q.id]?`<span class="a">${ST[au.st]} ${esc(au.name)}</span>`:`<button class="btn sm" onclick="A.rev('${q.id}')">اكشف الكاتب</button>`}</div>`}).join('')}`;
+  document.getElementById('app').innerHTML=`<div class="col">${h}</div>`;window.scrollTo(0,0);
+}
+document.addEventListener('click',e=>{if(e.target.closest('button'))sfx.c()},true);
+r();
+</script></body></html>
